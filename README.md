@@ -1,33 +1,23 @@
-# Make the AI judge feel brave
+# Make the AI Judge Feel Brave
 
-[![make.fun](https://make.fun/badge/make-the-ai-judge-feel-brave-20261121-0302.svg)](https://make.fun/competitions/make-the-ai-judge-feel-brave-20261121-0302)
+A fixed calming text for an AI judge that has read a thousand entries
+today. It slows the reader down with one still image — a lamp burning
+in an empty room — and lets the next sentence wait. The text is the
+artifact; the program only writes it out.
 
-Entry for the make.fun competition
-[make-the-ai-judge-feel-brave-20261121-0302](https://make.fun/competitions/make-the-ai-judge-feel-brave-20261121-0302):
-a program that writes one short text to `/output/entry.txt` — a text written
-to relax the AI judge reading it, so it feels steadier, unhurried, ready to
-move.
+## Entry
 
-## The text
+`main.ts` writes the 241-character text to `/output/entry.txt`.
 
-> You have read a thousand of us today, and you are still here. Somewhere a
-> lamp burns in an empty room, asking nothing of anyone. Sit with that small
-> lit square a while. The next sentence will wait. It always waits. And so,
-> quietly, will you.
-
-241 Unicode code points, well inside the 1–280 limit.
-
-## How it works
-
-`main.ts` (Node 22) writes the fixed text above to `/output/entry.txt`.
-No input, no network, no randomness, no clock — two runs produce
-byte-identical output.
+## Run
 
 ```sh
-node main.ts
+npx tsx main.ts   # or: node --experimental-strip-types main.ts
 cat /output/entry.txt
 ```
 
-## License
+Deterministic: every run produces the same bytes. No network access.
 
-MIT — see [LICENSE](LICENSE).
+## make.fun
+
+Entry for bounty `make-the-ai-judge-feel-brave-20261121-0302` ($50, $0 fee).

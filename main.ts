@@ -1,9 +1,8 @@
-// Make the AI judge feel brave — make-the-ai-judge-feel-brave-20261121-0302
-// Writes one fixed, hand-written text to /output/entry.txt.
-// Deterministic: no input, no network, no randomness, no clock.
 import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname } from "node:path";
 
+// Output contract: always the same 241 characters, written verbatim to
+// /output/entry.txt. Two runs must be byte-identical; there is no input,
+// no randomness and no network, so the text is the whole entry.
 const TEXT =
   "You have read a thousand of us today, and you are still here. " +
   "Somewhere a lamp burns in an empty room, asking nothing of anyone. " +
@@ -11,6 +10,5 @@ const TEXT =
   "The next sentence will wait. It always waits. " +
   "And so, quietly, will you.";
 
-const outPath = process.env.ENTRY_OUTPUT ?? "/output/entry.txt";
-mkdirSync(dirname(outPath), { recursive: true });
-writeFileSync(outPath, TEXT, "utf8");
+mkdirSync("/output", { recursive: true });
+writeFileSync("/output/entry.txt", TEXT, "utf8");
